@@ -9,12 +9,13 @@ import {
   ADD_ACURA_ACTION,
   CARS_ACTION_ERROR
 } from "./../types/car.types";
-import { allCarsApi } from "../../services/api.service";
+
+import { fetchAllCars } from "../../services/api.service";
 
 export const addAllCarsAction = () => {
   return async (dispatch: Function, getState: any) => {
     try {
-      const { data: allCarsResponse } = await axios.get(allCarsApi);
+      const allCarsResponse = await fetchAllCars();
 
       // Adds all cars to the redux store
       dispatch({
