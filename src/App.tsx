@@ -28,6 +28,7 @@ const App: React.FC = (props: any) => {
   );
 };
 
+// Redux Actions
 const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: any) =>
