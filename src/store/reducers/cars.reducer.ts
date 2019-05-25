@@ -5,7 +5,8 @@ import {
   ADD_BMW_ACTION,
   ADD_AUDI_ACTION,
   ADD_LEXUS_ACTION,
-  ADD_ACURA_ACTION
+  ADD_ACURA_ACTION,
+  CARS_ACTION_ERROR
 } from "./../types/car.types";
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
   bmw: [],
   audi: [],
   lexus: [],
-  acura: []
+  acura: [],
+  carsError: ""
 };
 
 const carsReducer = (state: any = initialState, action: Action) => {
@@ -53,6 +55,12 @@ const carsReducer = (state: any = initialState, action: Action) => {
       return {
         ...state,
         acura: action.payload
+      };
+
+    case CARS_ACTION_ERROR:
+      return {
+        ...state,
+        carsError: action.payload
       };
 
     default:

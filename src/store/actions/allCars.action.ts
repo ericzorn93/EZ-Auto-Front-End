@@ -6,7 +6,8 @@ import {
   ADD_BMW_ACTION,
   ADD_AUDI_ACTION,
   ADD_LEXUS_ACTION,
-  ADD_ACURA_ACTION
+  ADD_ACURA_ACTION,
+  CARS_ACTION_ERROR
 } from "./../types/car.types";
 import { allCarsApi } from "../../services/api.service";
 
@@ -49,6 +50,10 @@ export const addAllCarsAction = () => {
       /******** END individual cars to the redux store *********/
     } catch (error) {
       console.error(error);
+      dispatch({
+        type: CARS_ACTION_ERROR,
+        payload: "Could not fetch all cars successfully!"
+      });
     }
   };
 };
