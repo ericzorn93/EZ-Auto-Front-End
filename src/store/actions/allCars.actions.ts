@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import {
   ADD_ALL_CARS_ACTION,
   ADD_MERCEDES_BENZ_ACTION,
@@ -8,7 +6,7 @@ import {
   ADD_LEXUS_ACTION,
   ADD_ACURA_ACTION,
   CARS_ACTION_ERROR
-} from "./../types/car.types";
+} from "../types/car.types";
 
 import { fetchAllCars } from "../../services/api.service";
 

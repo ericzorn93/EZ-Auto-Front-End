@@ -1,11 +1,18 @@
 import React, { useEffect } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import { bindActionCreators } from "redux";
-import { addAllCarsAction } from "./store/actions/allCars.action";
 import { connect } from "react-redux";
 
+import logo from "./logo.svg";
+import "./App.css";
+import { addAllCarsAction } from "./store/actions/allCars.actions";
+import { addPrimayApiDataAction } from "./store/actions/primary.api.actions";
+
 const App: React.FC = (props: any) => {
+  // Dispatches the original API call to all primary API data
+  useEffect(() => {
+    props.dispatchPrimaryApiData();
+  });
+
   // Dispatches the original API call to all cars
   useEffect(() => {
     props.dispatchAddAllCars();
@@ -36,7 +43,8 @@ const mapStateToProps = (state: any) => ({});
 const mapDispatchToProps = (dispatch: any) =>
   bindActionCreators(
     {
-      dispatchAddAllCars: addAllCarsAction
+      dispatchAddAllCars: addAllCarsAction,
+      dispatchPrimaryApiData: addPrimayApiDataAction
     },
     dispatch
   );
