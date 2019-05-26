@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import "./styles/navbar.css";
+import "./navbar.css";
 
 const Navigation = () => {
   return (
@@ -12,18 +12,18 @@ const Navigation = () => {
           <Link to="/">EZ-Auto</Link>
         </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link>
-            <Link to="/">Home</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to="#">Mercedes-Benz</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to="#">BMW</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to="#">Audi</Link>
-          </Nav.Link>
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
+          <Link to="#" className="nav-link">
+            Mercedes-Benz
+          </Link>
+          <Link to="#" className="nav-link">
+            BMW
+          </Link>
+          <Link to="#" className="nav-link">
+            Audi
+          </Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
