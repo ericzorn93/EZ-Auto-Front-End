@@ -13,7 +13,9 @@ export function filterMercedesData(mercedesBenzData: any[]): any {
     }
   }
 
-  const finalData = newData;
+  const finalFilteredData = newData.filter(
+    car => car.modelName === "C300 4MATIC Sedan"
+  );
 
-  return finalData;
+  return finalFilteredData;
 }
