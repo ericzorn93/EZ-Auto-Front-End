@@ -2,11 +2,10 @@ import React from "react";
 import Navigation from "../components/Navigation";
 
 const Layout = (props: any) => (
-  <div>
+  <React.Fragment>
     <Navigation />
-
     {props.children}
-  </div>
+  </React.Fragment>
 );
 
 export default Layout;
