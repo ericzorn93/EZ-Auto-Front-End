@@ -8,6 +8,8 @@ const MercedesBenz: React.FC = (props: any) => {
   const { mercedesBenzData } = props;
   const finalData = filterMercedesData(mercedesBenzData);
 
+  console.log(finalData);
+
   if (!finalData.length) {
     return (
       <div
@@ -40,6 +42,18 @@ const MercedesBenz: React.FC = (props: any) => {
             <th>Image</th>
           </tr>
         </thead>
+        <tbody>
+          {finalData.map((car: any) => (
+            <>
+              <tr key={Math.random() * 1000}>
+                <td>{car.modelName}</td>
+              </tr>
+              <tr key={Math.random() * 1000}>
+                <td>{car.year}</td>
+              </tr>
+            </>
+          ))}
+        </tbody>
       </Table>
     </div>
   );

@@ -2,16 +2,18 @@ export function filterMercedesData(mercedesBenzData: any[]): any {
   let updatedMercedesBenzData = mercedesBenzData.map(
     (data: any[]) => data[0].vehicles.records
   );
-  const finalData: any[] = [];
+  const newData: any[] = [];
 
   for (let i = 0; i < updatedMercedesBenzData.length; i++) {
     const carArr = updatedMercedesBenzData[i];
 
     for (let j = 0; j < updatedMercedesBenzData[i].length; j++) {
-      const carData = carArr[j];
-      finalData.push(carData);
+      const carData: any = carArr[j];
+      newData.push(carData);
     }
   }
+
+  const finalData = newData;
 
   return finalData;
 }
