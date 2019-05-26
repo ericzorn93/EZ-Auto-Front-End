@@ -2,12 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { Spinner, Table } from "react-bootstrap";
 
+import { filterMercedesData } from "../../services/filter.service";
+
 const MercedesBenz: React.FC = (props: any) => {
   const { mercedesBenzData } = props;
+  const finalData = filterMercedesData(mercedesBenzData);
 
-  console.log(mercedesBenzData);
-
-  if (!mercedesBenzData) {
+  if (!finalData.length) {
     return (
       <div
         style={{
@@ -16,7 +17,7 @@ const MercedesBenz: React.FC = (props: any) => {
           justifyContent: "center"
         }}
       >
-        <Spinner animation="border" variant="secondary" />
+        <Spinner animation="border" variant="success" />
       </div>
     );
   }
