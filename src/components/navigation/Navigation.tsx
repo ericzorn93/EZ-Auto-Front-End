@@ -15,14 +15,20 @@ const Navigation = () => {
           <Link to="/" className="nav-link">
             Home
           </Link>
-          <Link to="#" className="nav-link">
+          <Link to="/mercedes-benz" className="nav-link">
             Mercedes-Benz
           </Link>
-          <Link to="#" className="nav-link">
+          <Link to="/bmw" className="nav-link">
             BMW
           </Link>
-          <Link to="#" className="nav-link">
+          <Link to="/audi" className="nav-link">
             Audi
+          </Link>
+          <Link to="/lexus" className="nav-link">
+            Lexus
+          </Link>
+          <Link to="/acura" className="nav-link">
+            Acura
           </Link>
         </Nav>
         <Form inline>

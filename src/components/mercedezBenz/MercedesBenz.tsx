@@ -1,26 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Spinner, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
+import { bindActionCreators } from "redux";
 
 import { filterMercedesData } from "../../services/filter.service";
+import { addMercdesBenzAction } from "../../store/actions/allCars.actions";
+import CustomSpinner from "../customSpinner/CustomSpinner";
 
 const MercedesBenz: React.FC = (props: any) => {
   const { mercedesBenzData } = props;
-  const finalData = filterMercedesData(mercedesBenzData);
+  const finalData: any[] = filterMercedesData(mercedesBenzData);
 
   if (!finalData.length || !finalData) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-      >
-        <br />
-        <Spinner animation="border" variant="success" />
-      </div>
-    );
+    return <CustomSpinner />;
   }
 
   return (
@@ -28,6 +20,8 @@ const MercedesBenz: React.FC = (props: any) => {
       <br />
 
       <h1>Mercedes Benz</h1>
+      {/* <Button onClick={refreshMercedesData}>Refresh Mercedes Benz Data</Button>
+      <br /> */}
 
       <Table striped bordered hover variant="dark">
         <thead>
@@ -81,4 +75,15 @@ const mapStateToProps = (state: any) => ({
   mercedesBenzData: state.cars.mercedesBenz
 });
 
-export default connect(mapStateToProps)(MercedesBenz);
+const mapDispatchToProps = (dispatch: any) =>
+  bindActionCreators(
+    {
+      dispatchGetMercedesBenz: addMercdesBenzAction
+    },
+    dispatch
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MercedesBenz);
