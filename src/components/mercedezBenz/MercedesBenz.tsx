@@ -8,7 +8,7 @@ const MercedesBenz: React.FC = (props: any) => {
   const { mercedesBenzData } = props;
   const finalData = filterMercedesData(mercedesBenzData);
 
-  if (!finalData.length) {
+  if (!finalData.length || !finalData) {
     return (
       <div
         style={{
