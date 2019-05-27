@@ -9,7 +9,7 @@ const HomePage: React.FC = () => {
     <React.Fragment>
       <Layout>
         <MercedesBenz />
-        {/* <BMW /> */}
+        <BMW />
       </Layout>
     </React.Fragment>
   );
