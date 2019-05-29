@@ -18,7 +18,7 @@ export class BMW extends Component<any> {
 
     return (
       <div>
-        <h1>BMW</h1>
+        <h1 style={{color: 'red'}}>BMW</h1>
       </div>
     );
   }
