@@ -1,47 +1,74 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-
 import CustomSpinner from "../customSpinner/CustomSpinner";
-import { fetchBmw } from "../../services/api.service";
+import { Table, Container } from "react-bootstrap";
 
-export class BMW extends Component<any> {
-  componentDidMount() {
-    console.log(this.props);
+const BMW: React.FC = (props: any) => {
+  const { bmwData } = props;
+
+  if (!bmwData.length) {
+    return <CustomSpinner />;
   }
 
-  componentDidUpdate() {
-    console.log(this.props);
-  }
+  const { Inventory: bmwInventory } = bmwData[0];
+  const filteredInventory = bmwInventory.filter(
+    (car: any) => car.Type === "CPO"
+  );
+  console.log(filteredInventory);
 
-  render() {
-    const { bmwData } = this.props;
-
-    if (!bmwData) {
-      return <CustomSpinner />;
-    }
-
-    return (
-      <div>
-        <h1 style={{ color: "red" }}>BMW</h1>
-      </div>
-    );
-  }
-}
+  return (
+    <Container>
+      <h1>BMW</h1>
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Mileage</th>
+            <th>Exterior Color</th>
+            <th>Interior Color</th>
+            <th>VIN Number</th>
+            <th>Sales Price</th>
+            <th>Dealer ID</th>
+            <th>Dealer City</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredInventory.map((car: any) => (
+            <React.Fragment key={car.VIN}>
+              <tr>
+                <td>{car.Model}</td>
+                <td>{car.Year}</td>
+                <td>{car.Mileage}</td>
+                <td>{car.ExteriorColorDescription}</td>
+                <td>{car.InteriorColorDescription}</td>
+                <td>{car.VIN}</td>
+                <td>{car.InternetPrice}</td>
+                <td>{car.DealerCode}</td>
+                <td>{car.DealerName}</td>
+                <td>
+                  {car.PhotoUrl ? (
+                    <img
+                      src={car.PhotoUrl}
+                      alt={car.Model}
+                      style={{ width: 200 }}
+                    />
+                  ) : (
+                    "N/A"
+                  )}
+                </td>
+              </tr>
+            </React.Fragment>
+          ))}
+        </tbody>
+      </Table>
+    </Container>
+  );
+};
 
 const mapStateToProps = (state: any) => ({
   bmwData: state.cars.bmw
 });
 
-const mapDispatchToProps = (dispatch: any) =>
-  bindActionCreators(
-    {
-      dispatchGetBMWModels: fetchBmw
-    },
-    dispatch
-  );
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BMW);
+export default connect(mapStateToProps)(BMW);

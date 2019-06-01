@@ -2,7 +2,7 @@ import React from "react";
 
 import Layout from "./Layout";
 import MercedesBenz from "../components/mercedezBenz/MercedesBenz";
-import { BMW } from "../components/bmw/BMW";
+import BMW from "../components/bmw/BMW";
 
 const HomePage: React.FC = () => {
   return (
