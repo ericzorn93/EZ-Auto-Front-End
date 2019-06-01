@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
 import { bindActionCreators } from "redux";
+import uuid from "uuid";
 
 import { filterMercedesData } from "../../services/filter.service";
 import { addMercdesBenzAction } from "../../store/actions/allCars.actions";
@@ -40,7 +41,7 @@ const MercedesBenz: React.FC = (props: any) => {
         </thead>
         <tbody>
           {finalData.map((car: any) => (
-            <>
+            <React.Fragment key={uuid.v4()}>
               <tr>
                 <td>{car.modelName}</td>
                 <td>{car.year}</td>
@@ -63,7 +64,7 @@ const MercedesBenz: React.FC = (props: any) => {
                   )}
                 </td>
               </tr>
-            </>
+            </React.Fragment>
           ))}
         </tbody>
       </Table>

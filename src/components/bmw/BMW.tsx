@@ -14,7 +14,6 @@ const BMW: React.FC = (props: any) => {
   const filteredInventory = bmwInventory.filter(
     (car: any) => car.Type === "CPO"
   );
-  console.log(filteredInventory);
 
   return (
     <Container>
