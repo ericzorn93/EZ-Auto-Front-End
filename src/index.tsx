@@ -4,12 +4,26 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
+import { ThemeProvider } from "emotion-theming";
 
 import store from "./store/store";
 
+/**
+ * @description
+ * Custom theme to send through component
+ *
+ * */
+const theme = {
+  mainTheme: {
+    primary: "Blue" // Test Color
+  }
+};
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </Provider>,
   document.getElementById("root")
 );
