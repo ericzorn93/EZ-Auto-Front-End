@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "./Layout";
 import MercedesBenz from "../components/mercedezBenz/MercedesBenz";
 import BMW from "../components/bmw/BMW";
+import Audi from "../components/audi/Audi";
 
 const HomePage: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const HomePage: React.FC = () => {
       <Layout>
         <MercedesBenz />
         <BMW />
+        <Audi />
       </Layout>
     </React.Fragment>
   );

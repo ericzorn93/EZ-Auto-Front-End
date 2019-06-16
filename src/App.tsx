@@ -10,6 +10,7 @@ import { addPrimayApiDataAction } from "./store/actions/primary.api.actions";
 import HomePage from "./pages/HomePage";
 import MercedesBenzPage from "./pages/MercedesBenzPage";
 import BMWPage from "./pages/BMWPage";
+import AudiPage from "./pages/AudiPage";
 
 const App: React.FC = (props: any) => {
   // Dispatches the original API call to all primary API data
@@ -28,6 +29,7 @@ const App: React.FC = (props: any) => {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/mercedes-benz" component={MercedesBenzPage} />
         <Route exact path="/bmw" component={BMWPage} />
+        <Route exact path="/audi" component={AudiPage} />
       </Switch>
     </Router>
   );
