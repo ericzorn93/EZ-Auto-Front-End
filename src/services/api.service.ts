@@ -7,6 +7,8 @@ export const primaryApi: string = "https://ez-auto.herokuapp.com/api/v1";
 export const fetchPrimaryApi = async () => {
   try {
     const { data: primaryApiData } = await axios.get(primaryApi);
+    sessionStorage.setItem("primaryApiData", JSON.stringify(primaryApiData));
+
     return primaryApiData;
   } catch (error) {
     return error;

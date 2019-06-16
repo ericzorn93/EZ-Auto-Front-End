@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Table } from "react-bootstrap";
+import { Table, Container } from "react-bootstrap";
 import { bindActionCreators } from "redux";
 import uuid from "uuid";
 
@@ -17,9 +17,7 @@ const MercedesBenz: React.FC = (props: any) => {
   }
 
   return (
-    <div className="container">
-      <br />
-
+    <Container>
       <h1>Mercedes Benz</h1>
       {/* <Button onClick={refreshMercedesData}>Refresh Mercedes Benz Data</Button>
       <br /> */}
@@ -68,7 +66,7 @@ const MercedesBenz: React.FC = (props: any) => {
           ))}
         </tbody>
       </Table>
-    </div>
+    </Container>
   );
 };
 
