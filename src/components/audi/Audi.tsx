@@ -16,7 +16,6 @@ const Audi = (props: any) => {
 
   const { cars: audiCars } = audiData;
   const cpoAudis = audiCars.filter((car: any) => car.cpo === true);
-  console.log(cpoAudis);
 
   return (
     <Container>
