@@ -11,6 +11,7 @@ import HomePage from "./pages/HomePage";
 import MercedesBenzPage from "./pages/MercedesBenzPage";
 import BMWPage from "./pages/BMWPage";
 import AudiPage from "./pages/AudiPage";
+import LexusPage from "./pages/LexusPage";
 
 const App: React.FC = (props: any) => {
   // Dispatches the original API call to all primary API data
@@ -30,6 +31,7 @@ const App: React.FC = (props: any) => {
         <Route exact path="/mercedes-benz" component={MercedesBenzPage} />
         <Route exact path="/bmw" component={BMWPage} />
         <Route exact path="/audi" component={AudiPage} />
+        <Route exact path="/lexus" component={LexusPage} />
       </Switch>
     </Router>
   );
