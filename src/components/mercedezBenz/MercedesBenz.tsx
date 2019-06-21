@@ -12,7 +12,7 @@ const MercedesBenz: React.FC = (props: any) => {
   const { mercedesBenzData } = props;
   const finalData: any[] = filterMercedesData(mercedesBenzData);
 
-  if (!finalData.length || !finalData) {
+  if (finalData.length <= 0 || !finalData) {
     return <CustomSpinner />;
   }
 
